@@ -29,7 +29,7 @@ export default function Home(): React.ReactElement {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Our Memory Calendar
+            Our Memory Calendar.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
