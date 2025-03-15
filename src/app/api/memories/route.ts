@@ -7,8 +7,7 @@ export async function GET() {
     await dbConnect();
     const memories = await Memory.find({}).sort({ date: -1 });
     return NextResponse.json(memories);
-  } catch (err) {
-    console.error('Failed to fetch memories:', err);
+  } catch {
     return NextResponse.json({ error: 'Failed to fetch memories' }, { status: 500 });
   }
 }
@@ -25,8 +24,7 @@ export async function POST(request: Request) {
       imageUrl: 'placeholder-url', // Replace with actual uploaded image URL
     });
     return NextResponse.json(memory);
-  } catch (err) {
-    console.error('Failed to create memory:', err);
+  } catch {
     return NextResponse.json({ error: 'Failed to create memory' }, { status: 500 });
   }
 } 
