@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import Calendar from '@/components/Calendar';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -13,13 +13,21 @@ export default function Home(): React.ReactElement {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto"
+        style={{ maxWidth: '80rem', margin: '0 auto' }}
       >
         <div className="text-center mb-8">
           <motion.h1
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
-            className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600"
+            style={{
+              fontSize: '2.25rem',
+              lineHeight: '2.5rem',
+              fontWeight: 'bold',
+              marginBottom: '0.5rem',
+              background: 'linear-gradient(to right, #4f46e5, #9333ea, #ec4899)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
           >
             Our Memory Calendar
           </motion.h1>
@@ -27,7 +35,7 @@ export default function Home(): React.ReactElement {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-600"
+            style={{ color: '#4B5563' }}
           >
             Cherishing our moments together, one photo at a time ✨
           </motion.p>
@@ -36,7 +44,11 @@ export default function Home(): React.ReactElement {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="bg-white rounded-xl shadow-xl"
+          style={{
+            backgroundColor: 'white',
+            borderRadius: '0.75rem',
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+          }}
         >
           <Suspense fallback={<LoadingSpinner />}>
             <Calendar />
